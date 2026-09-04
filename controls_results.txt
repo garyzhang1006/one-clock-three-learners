@@ -1,0 +1,33 @@
+=== geometry: machine coverage and unit count imposed on mammals (no primate terms) ===
+baseline rate-only R2 0.769
+latest events dropped from the slowest species, machine fractions: rate-only R2 0.857 rho 0.9852 cells 305
+same counts dropped at random, 200 draws: rate-only R2 mean 0.765 [0.749, 0.782]
+all 210 six-species subsets: rate-only R2 median 0.738 min 0.459 max 0.821
+=== rival: log t = a_i + g_i * b_e, alternating least squares, 500 sweeps ===
+mammals                    n=372 additive R2 0.9722 stretch R2 0.9812 gain 0.0090 F(9,259)=13.9
+    Cat=1.24, Ferret=1.16, Guinea.Pig=0.77, Hamster=0.91, Human=1.60, Macaque=1.33, Mouse=0.86, Rabbit=1.10, Rat=0.84, Spiny.Mouse=0.17
+children                   n=5120 additive R2 0.6504 stretch R2 0.6579 gain 0.0074 F(14,4435)=6.9
+    Croatian=1.14, Danish=1.07, English (American)=0.99, French (French)=0.88, French (Quebecois)=0.99, Hebrew=1.16, Italian=0.91, Kiswahili=0.92, Korean=0.99, Norwegian=1.19, Russian=0.99, Slovak=1.15, Spanish (Mexican)=1.00, Swedish=0.93, Turkish=0.70
+machines                   n=234 additive R2 0.7785 stretch R2 0.8789 gain 0.1004 F(5,176)=29.2
+    pythia-14m=1.79, pythia-160m=0.64, pythia-1b=0.51, pythia-31m=1.55, pythia-410m=0.51, pythia-70m=1.01
+machines complete-case     n=168 additive R2 0.7707 stretch R2 0.8735 gain 0.1027 F(5,130)=21.1
+    pythia-14m=1.71, pythia-160m=0.68, pythia-1b=0.74, pythia-31m=1.53, pythia-410m=0.48, pythia-70m=0.86
+machines deduplicated      n=178 additive R2 0.7750 stretch R2 0.8960 gain 0.1210 F(4,127)=36.9
+    pythia-14m-deduped=1.82, pythia-160m-deduped=0.61, pythia-31m-deduped=1.26, pythia-410m-deduped=0.38, pythia-70m-deduped=0.93
+machines criterion 0.65    n=237 additive R2 0.8072 stretch R2 0.8662 gain 0.0590 F(5,179)=15.8
+    pythia-14m=1.54, pythia-160m=0.72, pythia-1b=0.70, pythia-31m=1.42, pythia-410m=0.55, pythia-70m=1.07
+machines criterion 0.75    n=214 additive R2 0.7988 stretch R2 0.9000 gain 0.1012 F(5,158)=32.0
+    pythia-14m=1.53, pythia-160m=0.68, pythia-1b=0.59, pythia-31m=1.58, pythia-410m=0.43, pythia-70m=1.19
+machines standard, 5 sizes n=187 additive R2 0.7775 stretch R2 0.8915 gain 0.1141 F(4,134)=35.2
+    pythia-14m=1.70, pythia-160m=0.52, pythia-31m=1.42, pythia-410m=0.40, pythia-70m=0.96
+=== child ceiling: slow one language, censor above 36 months, refit ===
+slowed x1.25: recovered fold median 1.231 min 1.169 max 1.245; cells censored median 39; rate span after median 1.336
+slowed x1.5: recovered fold median 1.424 min 1.340 max 1.490; cells censored median 183; rate span after median 1.545
+slowed x2.0: recovered fold median 1.683 min 1.158 max 2.213; cells censored median 342; rate span after median 1.828
+=== rival: random restarts of the alternating fit (initial stretches drawn in [0.5, 2]) ===
+mammals: 20 restarts, stretch R2 min 0.9812 max 0.9812; smallest fitted stretch across restarts min 0.17 max 0.17
+machines: 20 restarts, stretch R2 min 0.8789 max 0.8789; smallest fitted stretch across restarts min 0.51 max 0.51
+=== child ceiling: rate-only R2 under censoring against the uncensored slowed table ===
+slowed x1.25: rate-only R2 uncensored median 0.172, censored median 0.141 min 0.078 max 0.178
+slowed x1.5: rate-only R2 uncensored median 0.337, censored median 0.151 min 0.127 max 0.186
+slowed x2.0: rate-only R2 uncensored median 0.574, censored median 0.088 min 0.064 max 0.103

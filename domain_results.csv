@@ -1,0 +1,4 @@
+system,domain label,var explained,perm p,classes,events
+mammals,brain structure class,0.18687823575220133,5e-05,3,95
+children,CDI lexical class,0.10860245603973526,0.0,5,657
+machines,BLiMP phenomenon,0.49369350759942104,0.0071,13,48

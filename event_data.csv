@@ -1,0 +1,107 @@
+Event,Hamster,Mouse,Rat,Rabbit,Spiny.Mouse,Guinea.Pig,Ferret,Cat,Macaque,Human,Cortical,Limbic,Reference
+white matter cells generated - start,0.0,0.0,0.0,0.0,0,0,19.0,0.0,0.0,0.0,1,0,Jackson (1989)
+white matter cells generated - end,0.0,0.0,0.0,0.0,0,0,26.0,0.0,0.0,0.0,1,0,Jackson (1989)
+"""layer I cells generated, first wave - end""",0.0,0.0,0.0,0.0,0,0,29.0,0.0,0.0,0.0,1,0,Jackson (1989)
+layer V genesis - start,0.0,0.0,0.0,0.0,0,0,26.0,0.0,0.0,0.0,1,0,Jackson (1989)
+layer IV genesis - start,0.0,0.0,0.0,0.0,0,0,31.0,0.0,0.0,0.0,1,0,Jackson (1989)
+layer V genesis - end,0.0,0.0,0.0,0.0,0,0,37.0,0.0,0.0,0.0,1,0,Jackson (1989)
+layer IV genesis - end,0.0,0.0,0.0,0.0,0,0,43.0,0.0,0.0,0.0,1,0,Jackson (1989)
+"""layer I cells generated, second wave - start""",0.0,0.0,0.0,0.0,0,0,43.0,0.0,0.0,0.0,1,0,Jackson (1989)
+external capsule appears,0.0,0.0,0.0,0.0,0,0,0.0,0.0,40.0,56.0,1,0,Ashwell et al. (1996)
+retinal horizontal cells - peak,0.0,0.0,0.0,0.0,0,0,0.0,30.0,40.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+retinal bipolar cells - peak,0.0,0.0,0.0,0.0,0,0,0.0,65.0,85.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+"""layer I cells generated, first wave - start""",0.0,0.0,10.0,0.0,0,0,19.0,0.0,0.0,0.0,1,0,Jackson (1989); Dediego (1994)
+locus coeruleus - peak,0.0,0.0,11.0,0.0,0,0,0.0,0.0,32.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+red nucleus - peak,0.0,0.0,12.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+vestibular nuclei - peak,0.0,0.0,12.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+magnocellular basal forebrain - peak,0.0,0.0,12.0,0.0,0,0,0.0,0.0,30.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+deep cerebellar nuclei - peak,0.0,0.0,13.0,0.0,0,0,0.0,0.0,38.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+mammillo-thalamic tract appears,0.0,0.0,14.0,0.0,0,0,0.0,23.0,0.0,44.0,0,1,Ashwell et al. (1996)
+stria medullaris thalami appears,0.0,0.0,14.0,0.0,0,0,0.0,0.0,48.0,44.0,0,1,Ashwell et al. (1996)
+rapid axon generation in optic nerve - start,0.0,0.0,15.0,15.5,0,0,0.0,27.5,0.0,0.0,0,0,"""Ashwell et al. (1996), Tables 1-3; Robinson and Dreher (1990), Tables 1-5"""
+substantia nigra - peak,0.0,0.0,15.0,0.0,0,0,0.0,0.0,39.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+internal capsule appears,0.0,0.0,15.0,0.0,0,0,0.0,0.0,40.0,63.0,1,0,Ashwell et al. (1996)
+inferior colliculus - peak,0.0,0.0,16.0,0.0,0,0,0.0,0.0,43.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+dentate gyrus - peak,0.0,0.0,16.0,0.0,22,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+neurogenesis cortical layer II/III - start (VC),0.0,0.0,16.0,0.0,18,0,0.0,42.0,85.5,0.0,1,0,Bayer and Altman (1991); Brunjes et al. (1989); Luskin and Shatz (1985); Kostovic and Rakic (1980)
+LGN axons in subplate,0.0,0.0,17.5,0.0,0,0,0.0,41.5,78.0,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+neurogenesis cortical layer II/III - end (VC),0.0,0.0,19.0,0.0,22,0,0.0,57.0,100.0,0.0,1,0,Bayer and Altman (1991); Brunjes et al. (1989); Luskin and Shatz (1985); Kostovic and Rakic (1980)
+cortical axons reach dLGN,0.0,0.0,19.5,24.5,0,0,0.0,0.0,67.0,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+cortical axons innervate dLGN,0.0,0.0,21.5,27.5,0,0,0.0,0.0,81.5,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+superficial SC - start of lamination,0.0,0.0,24.5,29.5,0,0,0.0,0.0,86.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+adultlike cortical innervation of  dLGN,0.0,0.0,24.5,30.5,0,0,0.0,0.0,96.0,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+LGN  axons in cortical layer IV,0.0,0.0,25.0,0.0,0,0,0.0,61.5,91.0,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+visual cortical axons in  SC,0.0,0.0,28.5,34.5,0,0,0.0,0.0,96.0,0.0,1,0,"""Robinson and Dreher (1990), Tables 1-5"""
+cranial motor nuclei - peak,0.0,9.0,11.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+inferior olivary nucleus - peak,0.0,10.0,12.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+Purkinje cells - peak,0.0,10.5,14.0,0.0,0,0,0.0,0.0,39.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+cranial sensory nuclei - peak,0.0,11.0,12.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+reticular nuclei - peak,0.0,11.0,13.0,0.0,0,0,0.0,24.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+medial geniculate nucleus - peak,0.0,11.0,13.0,0.0,0,0,0.0,26.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+globus pallidus - peak,0.0,11.0,14.0,0.0,0,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+cochlear nuclei - peak,0.0,12.0,14.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+mitral cells - peak,0.0,12.0,14.0,0.0,18,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+amygdala - peak,0.0,12.0,15.0,0.0,18,0,0.0,0.0,38.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+subplate - end,0.0,12.0,15.0,0.0,22,0,0.0,30.0,48.0,0.0,1,0,"""Bayer and Altman (1990); Brunjes et al. (1989); Caviness (1982); Luskin and Shatz (1985); Robinson and Dreher (1990), Tables 1-5"""
+axons in optic stalk,0.0,12.3,14.5,0.0,0,23,24.0,19.0,0.0,51.0,0,0,Dunlop et al. (1997); Langford and Sefton (1992)
+claustrum - peak,0.0,12.5,0.0,0.0,18,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+preoptic nucleus - peak,0.0,12.5,12.0,0.0,0,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+VP and VB nuclei- peak,0.0,12.5,14.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+nucleus of lateral olfactory tract - peak,0.0,12.5,14.0,0.0,0,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+septal nuclei - peak,0.0,13.0,14.0,0.0,19,0,0.0,0.0,45.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+entorhinal cortex - peak,0.0,13.0,14.0,0.0,20,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+optic axons at chiasm of optic tract,0.0,13.0,15.0,0.0,0,0,24.0,0.0,36.0,0.0,0,0,Dunlop et al. (1997)
+subiculum peak,0.0,13.0,16.0,0.0,20,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+anterior olfactory nucleus - peak,0.0,13.5,12.0,0.0,22,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+raphe complex - peak,0.0,13.5,12.0,0.0,0,0,0.0,0.0,30.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+"""AV, AM, AD  nuclei - peak""",0.0,13.5,15.0,0.0,0,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+pontine nuclei peak,0.0,13.5,16.0,0.0,0,0,0.0,0.0,0.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+parasubiculum peak,0.0,13.5,16.0,0.0,0,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+presubiculum peak,0.0,13.5,17.0,0.0,0,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+cones - peak,0.0,14.0,0.0,0.0,0,0,0.0,36.0,56.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+caudoputamen peak,0.0,14.0,15.0,0.0,20,0,0.0,0.0,45.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+fornix appears,0.0,14.0,15.0,0.0,0,0,0.0,0.0,48.0,63.0,0,1,Ashwell et al. (1996)
+optic axons reach dLGN and  SC,0.0,14.5,15.5,0.0,0,0,28.5,31.5,0.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+hippocampal commisure appears,0.0,15.0,17.0,0.0,0,0,0.0,37.0,0.0,77.0,0,1,Ashwell et al. (1996)
+"""CA 1, CA 2 - peak""",0.0,15.0,18.0,0.0,20,0,0.0,0.0,48.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+isles of Calleja - peak,0.0,16.0,0.0,0.0,0,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+tufted cells - peak,0.0,16.0,17.0,0.0,22,0,0.0,0.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+nucleus accumbens - peak,0.0,16.0,19.0,0.0,22,0,0.0,0.0,45.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+rods - peak,0.0,19.0,0.0,0.0,0,0,0.0,65.0,85.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+retinal ganglion cell generation - start,9.5,10.5,11.5,13.0,0,0,21.0,19.5,30.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+dLGN- start,10.5,10.5,13.5,0.0,0,0,0.0,21.5,36.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+superficial SC laminae - start,11.0,10.5,12.5,0.0,0,0,0.0,0.0,30.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+vLGN - peak,11.0,11.5,14.0,0.0,0,0,0.0,26.0,0.0,0.0,0,0,"""Darlington et al. (1999); Finlay and Darlington (1995), Table 2"""
+dLGN - peak ,11.0,12.0,14.0,0.0,0,0,0.0,27.0,43.0,0.0,0,0,"""Darlington et al. (1999); Finlay and Darlington (1995), Table 2"""
+neurogenesis cortical layer VI - start (VC),11.5,11.0,13.0,14.5,0,0,22.5,28.0,45.0,0.0,1,0,"""Caviness (1982); Robinson and Dreher (1990), Tables 1-5"""
+dLGN- end,11.5,12.5,15.5,0.0,0,0,0.0,31.5,43.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+suprachisamatic nucleus - peak,11.5,13.0,14.0,0.0,0,0,0.0,25.0,0.0,0.0,0,1,"""Finlay and Darlington (1995), Table 2"""
+neurogenesis cortical layer VI - peak (VC),12.0,12.5,16.0,0.0,18,0,29.0,33.0,53.0,0.0,1,0,"""Finlay and Darlington (1995), Table 2; Orourke (1995)"""
+superior colliculus - peak,12.0,13.0,15.0,0.0,0,0,0.0,0.0,41.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+retinal ganglion cells - peak,12.0,13.0,16.0,0.0,0,0,0.0,30.0,43.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+superficial SC laminae - end,12.0,14.0,17.5,0.0,0,0,0.0,0.0,56.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+neurogenesis cortical layer V - start (VC),12.5,12.0,13.5,0.0,0,0,27.5,32.5,58.5,0.0,1,0,"""Caviness (1982); Robinson and Dreher (1990), Tables 1-5"""
+neurogenesis cortical lamina IV - start (VC),12.5,15.0,15.5,20.0,0,0,32.5,37.0,70.0,0.0,1,0,"""Caviness (1982); Finlay and Darlington (1995), Table 2; Robinson and Dreher (1990), Tables 1-5"""
+posterior commisure appears,13.0,0.0,0.0,0.0,0,0,0.0,21.0,35.0,33.0,0,0,Ashwell et al. (1996)
+anterior commisure appears,13.0,14.5,0.0,0.0,0,0,0.0,0.0,48.0,70.0,0,1,Ashwell et al. (1996)
+neurogenesis cortical lamina VI - end (VC),13.5,13.0,15.5,0.0,0,0,36.5,37.5,65.0,0.0,1,0,"""Caviness (1982); Robinson and Dreher (1990), Tables 1-5"""
+medial forebrain bundle appears,14.0,13.0,13.0,0.0,0,0,0.0,0.0,35.5,33.0,0,1,Ashwell et al. (1996)
+neurogenesis cortical layer V - peak (VC),14.0,13.0,16.0,0.0,20,0,0.0,35.0,70.0,0.0,1,0,"""Finlay and Darlington (1995), Table 2"""
+retinal amacrine cells - peak,14.0,15.0,16.0,0.0,0,0,0.0,45.0,56.0,0.0,0,0,"""Finlay and Darlington (1995), Table 2"""
+neurogenesis cortical layer IV - peak (VC),14.0,17.0,17.0,0.0,20,0,0.0,39.0,80.0,0.0,1,0,"""Caviness (1982); Finlay and Darlington (1995), Table 2; Woo et al. (1991)"""
+retinal ganglion cell generation - end,14.0,18.5,18.5,0.0,0,0,0.0,35.5,57.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+stria terminalis appears,15.0,13.5,0.0,0.0,0,0,0.0,0.0,0.0,56.0,0,1,Ashwell et al. (1996)
+corpus callosum appears,15.0,17.0,18.5,0.0,0,0,0.0,39.0,0.0,87.5,1,0,Ashwell et al. (1996)
+neurogenesis cortical layer V - end (VC),15.5,14.0,16.5,19.0,0,0,38.5,39.5,75.0,0.0,1,0,"""Caviness (1982); Robinson and Dreher (1990), Tables 1-5"""
+neurogenesis cortical layer IV - end (VC),15.5,17.0,17.5,0.0,0,0,42.5,47.0,85.0,0.0,1,0,"""Caviness (1982); Robinson and Dreher (1990), Tables 1-5"""
+neurogenesis cortical layer II /III - peak (VC),16.0,15.0,18.0,0.0,22,0,0.0,56.0,90.0,0.0,1,0,"""Finlay and Darlington (1995), Table 2"""
+optic axons invade visual centers,16.0,15.5,16.5,0.0,0,0,26.0,32.0,0.0,60.0,0,0,Dunlop et al. (1997)
+optic nerve axon number - peak,18.0,0.0,19.5,23.5,0,32,0.0,38.5,69.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5; Langford and Sefton (1992)"""
+initial differentiation of layer V (S1),18.0,19.0,21.0,28.0,0,37,0.0,0.0,0.0,0.0,1,0,"""Rice et al. (1985), Table 1"""
+onset of barrels (S1),19.0,22.0,24.0,30.5,0,41,0.0,0.0,0.0,0.0,1,0,"""Rice et al. (1985), Table 1"""
+onset of sublayers in layer V (S1),21.0,22.0,24.0,31.0,0,41,0.0,0.0,0.0,0.0,1,0,"""Rice et al. (1985), Table 1"""
+onset of trilaminar plate (S1),21.0,22.0,24.0,31.0,0,41,0.0,0.0,0.0,0.0,1,0,"""Rice et al. (1985), Table 1"""
+onset of barrel field septa (S1),23.0,24.0,26.0,0.0,0,43,0.0,0.0,0.0,0.0,1,0,"""Rice et al. (1985), Table 1"""
+ipsi/contra segregation in LGN and SC,23.5,25.5,28.5,32.0,0,0,56.0,60.5,87.0,175.0,0,0,"""Robinson and Dreher (1990), Tables 1-5"""
+eye opening,31.0,30.0,36.0,43.0,0,0,72.0,72.0,123.0,157.5,0,0,"""Ashwell et al. (1996), Tables 1-3; Dunlop et al. (1997); Robinson and Dreher (1990)"""
+rapid axon loss in optic nerve ends,31.5,0.0,29.0,32.5,0,39,0.0,53.0,110.0,0.0,0,0,"""Robinson and Dreher (1990), Tables 1-5; Langford and Sefton (1992)"""

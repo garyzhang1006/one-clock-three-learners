@@ -1,0 +1,146 @@
+{
+ "wh_vs_that_no_gap": {
+  "field": "filler_gap_dependency"
+ },
+ "wh_vs_that_no_gap_long_distance": {
+  "field": "filler_gap_dependency"
+ },
+ "wh_questions_subject_gap_long_distance": {
+  "field": "filler_gap_dependency"
+ },
+ "wh_questions_subject_gap": {
+  "field": "filler_gap_dependency"
+ },
+ "existential_there_quantifiers_1": {
+  "field": "quantifiers"
+ },
+ "passive_1": {
+  "field": "argument_structure"
+ },
+ "tough_vs_raising_2": {
+  "field": "control_raising"
+ },
+ "irregular_past_participle_verbs": {
+  "field": "irregular_forms"
+ },
+ "irregular_past_participle_adjectives": {
+  "field": "irregular_forms"
+ },
+ "passive_2": {
+  "field": "argument_structure"
+ },
+ "determiner_noun_agreement_1": {
+  "field": "determiner_noun_agreement"
+ },
+ "determiner_noun_agreement_2": {
+  "field": "determiner_noun_agreement"
+ },
+ "determiner_noun_agreement_irregular_2": {
+  "field": "determiner_noun_agreement"
+ },
+ "irregular_plural_subject_verb_agreement_2": {
+  "field": "subject_verb_agreement"
+ },
+ "anaphor_number_agreement": {
+  "field": "anaphor_agreement"
+ },
+ "determiner_noun_agreement_with_adjective_1": {
+  "field": "determiner_noun_agreement"
+ },
+ "regular_plural_subject_verb_agreement_1": {
+  "field": "subject_verb_agreement"
+ },
+ "expletive_it_object_raising": {
+  "field": "control_raising"
+ },
+ "determiner_noun_agreement_with_adj_2": {
+  "field": "determiner_noun_agreement"
+ },
+ "principle_A_domain_2": {
+  "field": "binding"
+ },
+ "regular_plural_subject_verb_agreement_2": {
+  "field": "subject_verb_agreement"
+ },
+ "irregular_plural_subject_verb_agreement_1": {
+  "field": "subject_verb_agreement"
+ },
+ "determiner_noun_agreement_irregular_1": {
+  "field": "determiner_noun_agreement"
+ },
+ "determiner_noun_agreement_with_adj_irregular_2": {
+  "field": "determiner_noun_agreement"
+ },
+ "transitive": {
+  "field": "argument_structure"
+ },
+ "ellipsis_n_bar_2": {
+  "field": "ellipsis"
+ },
+ "adjunct_island": {
+  "field": "island_effects"
+ },
+ "animate_subject_passive": {
+  "field": "s-selection"
+ },
+ "principle_A_case_2": {
+  "field": "binding"
+ },
+ "anaphor_gender_agreement": {
+  "field": "anaphor_agreement"
+ },
+ "superlative_quantifiers_2": {
+  "field": "quantifiers"
+ },
+ "existential_there_subject_raising": {
+  "field": "control_raising"
+ },
+ "animate_subject_trans": {
+  "field": "s-selection"
+ },
+ "determiner_noun_agreement_with_adj_irregular_1": {
+  "field": "determiner_noun_agreement"
+ },
+ "superlative_quantifiers_1": {
+  "field": "quantifiers"
+ },
+ "ellipsis_n_bar_1": {
+  "field": "ellipsis"
+ },
+ "only_npi_licensor_present": {
+  "field": "npi_licensing"
+ },
+ "drop_argument": {
+  "field": "argument_structure"
+ },
+ "wh_questions_object_gap": {
+  "field": "filler_gap_dependency"
+ },
+ "causative": {
+  "field": "argument_structure"
+ },
+ "coordinate_structure_constraint_object_extraction": {
+  "field": "island_effects"
+ },
+ "distractor_agreement_relational_noun": {
+  "field": "subject_verb_agreement"
+ },
+ "intransitive": {
+  "field": "argument_structure"
+ },
+ "only_npi_scope": {
+  "field": "npi_licensing"
+ },
+ "wh_island": {
+  "field": "island_effects"
+ },
+ "distractor_agreement_relative_clause": {
+  "field": "subject_verb_agreement"
+ },
+ "sentential_negation_npi_scope": {
+  "field": "npi_licensing"
+ },
+ "principle_A_c_command": {
+  "field": "binding"
+ }
+}

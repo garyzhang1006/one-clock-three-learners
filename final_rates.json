@@ -1,0 +1,39 @@
+{
+ "mammals_rates": {
+  "Hamster": 1.0,
+  "Mouse": 1.035,
+  "Rat": 1.178,
+  "Rabbit": 1.374,
+  "Spiny.Mouse": 1.452,
+  "Guinea.Pig": 1.9,
+  "Ferret": 2.231,
+  "Cat": 2.448,
+  "Macaque": 3.838,
+  "Human": 4.644
+ },
+ "children_rates": {
+  "Croatian": 1.062,
+  "Danish": 1.113,
+  "English (American)": 1.011,
+  "French (French)": 1.131,
+  "French (Quebecois)": 1.029,
+  "Hebrew": 1.007,
+  "Italian": 1.085,
+  "Kiswahili": 1.053,
+  "Korean": 1.092,
+  "Norwegian": 1.06,
+  "Russian": 1.135,
+  "Slovak": 1.0,
+  "Spanish (Mexican)": 1.107,
+  "Swedish": 1.085,
+  "Turkish": 1.113
+ },
+ "machines_rates": {
+  "pythia-14m": 5.729,
+  "pythia-160m": 1.198,
+  "pythia-1b": 1.0,
+  "pythia-31m": 3.558,
+  "pythia-410m": 1.241,
+  "pythia-70m": 1.599
+ }
+}
