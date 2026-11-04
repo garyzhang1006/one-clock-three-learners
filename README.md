@@ -117,6 +117,12 @@ minutes and writes `seeds_results.json` (reported run in `gaps/out/`, log in `se
 
     python gaps/seeds.py
 
+`gaps/window.py` splits the drop in the seed-panel stretch when checkpoints before step 128 are
+added into cell selection and crossing placement, by refitting the pooled seed table on matched
+cell sets (`window_results.json`).
+
+    python gaps/window.py
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten
