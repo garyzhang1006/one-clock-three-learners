@@ -111,6 +111,12 @@ comparison, a refit without extrapolated crossings, and the spiny-mouse and lexi
 It takes about 3.6 hours on four CPU threads, most of it in the binomial resampling, and writes
 `gaps_results.json` to the working directory. `gaps/out/` holds the run the paper reports and its log.
 
+`gaps/seeds.py` repeats the stretch fit across ten PolyPythias seeds per size (14M to 410M) and the
+160M weight-only and data-only seeds, using the BLiMP accuracies in `matched/`. It runs in a few
+minutes and writes `seeds_results.json` (reported run in `gaps/out/`, log in `seeds_log.txt`).
+
+    python gaps/seeds.py
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten
