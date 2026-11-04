@@ -1,0 +1,63 @@
+[{"stream_name":"stdout","time":7.856800458,"data":"{'mammals': 372, 'lexical': 5120, 'lexical_comprehension': 5048, 'machines': 234, 'machines_complete': 168}\n"}
+,{"stream_name":"stdout","time":60.842597815,"data":"primary machine panel recomputed: 234 0.8823 {'observed': 239, 'notreached': 105, 'before': 36, 'ceiling': 17, 'after': 4, 'error': 1}\n"}
+,{"stream_name":"stdout","time":78.47841464,"data":"A mammals {'oos_r2_additive': np.float64(0.9463), 'oos_r2_stretch': np.float64(0.9421), 'mse_ratio_stretch_over_additive': np.float64(1.0778), 'folds_stretch_better': 37, 'folds': 50, 'test_cells': 1838, 'skipped_cells': 22}\n"}
+,{"stream_name":"stdout","time":155.99643095,"data":"A lexical {'oos_r2_additive': np.float64(0.5255), 'oos_r2_stretch': np.float64(0.5221), 'mse_ratio_stretch_over_additive': np.float64(1.0071), 'folds_stretch_better': 26, 'folds': 50, 'test_cells': 25493, 'skipped_cells': 107}\n"}
+,{"stream_name":"stdout","time":167.351192661,"data":"A machines {'oos_r2_additive': np.float64(0.6206), 'oos_r2_stretch': np.float64(0.6565), 'mse_ratio_stretch_over_additive': np.float64(0.9052), 'folds_stretch_better': 36, 'folds': 50, 'test_cells': 1168, 'skipped_cells': 2}\n"}
+,{"stream_name":"stdout","time":176.867367915,"data":"A machines_complete {'oos_r2_additive': np.float64(0.6476), 'oos_r2_stretch': np.float64(0.619), 'mse_ratio_stretch_over_additive': np.float64(1.0812), 'folds_stretch_better': 33, 'folds': 50, 'test_cells': 840, 'skipped_cells': 0}\n"}
+,{"stream_name":"stdout","time":176.867424224,"data":"[A_cross_validation] done in 116s\n"}
+,{"stream_name":"stdout","time":181.281066,"data":"B mammals 3 {'additive_anchor': 0.705, 'event_only': -2.611, 'anchor_mean': -0.417, 'stretch_anchor': -0.083}\n"}
+,{"stream_name":"stdout","time":206.00116639,"data":"B lexical 3 {'additive_anchor': 0.304, 'event_only': 0.408, 'anchor_mean': -0.356, 'stretch_anchor': -8.059}\n"}
+,{"stream_name":"stdout","time":230.286363122,"data":"B lexical_comprehension 3 {'additive_anchor': 0.371, 'event_only': 0.287, 'anchor_mean': -0.343, 'stretch_anchor': -3.853}\n"}
+,{"stream_name":"stdout","time":232.194581466,"data":"B machines 3 {'additive_anchor': 0.51, 'event_only': 0.329, 'anchor_mean': -0.358, 'stretch_anchor': -0.141}\n"}
+,{"stream_name":"stdout","time":236.717517673,"data":"B mammals 5 {'additive_anchor': 0.727, 'event_only': -2.671, 'anchor_mean': -0.294, 'stretch_anchor': 0.679}\n"}
+,{"stream_name":"stdout","time":261.4258181,"data":"B lexical 5 {'additive_anchor': 0.377, 'event_only': 0.408, 'anchor_mean': -0.205, 'stretch_anchor': 0.039}\n"}
+,{"stream_name":"stdout","time":285.762970051,"data":"B lexical_comprehension 5 {'additive_anchor': 0.432, 'event_only': 0.287, 'anchor_mean': -0.209, 'stretch_anchor': 0.18}\n"}
+,{"stream_name":"stdout","time":287.617830899,"data":"B machines 5 {'additive_anchor': 0.559, 'event_only': 0.328, 'anchor_mean': -0.23, 'stretch_anchor': 0.428}\n"}
+,{"stream_name":"stdout","time":287.617868574,"data":"[B_heldunit_baselines] done in 111s\n"}
+,{"stream_name":"stdout","time":347.998951255,"data":"C draw 0 0.847 0.116\n"}
+,{"stream_name":"stdout","time":1736.294373028,"data":"C draw 25 0.869 0.104\n"}
+,{"stream_name":"stdout","time":3144.980656988,"data":"C draw 50 0.844 0.117\n"}
+,{"stream_name":"stdout","time":4529.514196895,"data":"C draw 75 0.876 0.093\n"}
+,{"stream_name":"stdout","time":5946.810188992,"data":"C draw 100 0.863 0.096\n"}
+,{"stream_name":"stdout","time":7372.814816984,"data":"C draw 125 0.901 0.052\n"}
+,{"stream_name":"stdout","time":8798.901978606,"data":"C draw 150 0.861 0.11\n"}
+,{"stream_name":"stdout","time":10306.543724306,"data":"C draw 175 0.881 0.099\n"}
+,{"stream_name":"stdout","time":11697.819210773,"data":"[C_crossing_bootstrap] done in 11410s\n"}
+,{"stream_name":"stdout","time":11702.780976968,"data":"I mammals {'full_r2': 0.972, 'unit_only_r2': 0.769, 'event_only_r2': 0.349, 'unit_given_event': 0.623, 'event_given_unit': 0.203, 'var_unit': 0.738, 'var_event': 0.22, 'two_cov': 0.014, 'var_resid': 0.028, 'span': 4.644}\n"}
+,{"stream_name":"stdout","time":11879.969361019,"data":"I lexical {'full_r2': 0.65, 'unit_only_r2': 0.078, 'event_only_r2': 0.593, 'unit_given_event': 0.058, 'event_given_unit': 0.572, 'var_unit': 0.062, 'var_event': 0.58, 'two_cov': 0.008, 'var_resid': 0.35, 'span': 1.135}\n"}
+,{"stream_name":"stdout","time":12056.57298984,"data":"I lexical_comprehension {'full_r2': 0.735, 'unit_only_r2': 0.181, 'event_only_r2': 0.603, 'unit_given_event': 0.133, 'event_given_unit': 0.554, 'var_unit': 0.145, 'var_event': 0.559, 'two_cov': 0.03, 'var_resid': 0.265, 'span': 1.533}\n"}
+,{"stream_name":"stdout","time":12058.333268087,"data":"I machines {'full_r2': 0.779, 'unit_only_r2': 0.039, 'event_only_r2': 0.607, 'unit_given_event': 0.172, 'event_given_unit': 0.74, 'var_unit': 0.203, 'var_event': 0.808, 'two_cov': -0.232, 'var_resid': 0.221, 'span': 5.729}\n"}
+,{"stream_name":"stdout","time":12059.101220292,"data":"I machines_complete {'full_r2': 0.771, 'unit_only_r2': 0.233, 'event_only_r2': 0.538, 'unit_given_event': 0.233, 'event_given_unit': 0.538, 'var_unit': 0.233, 'var_event': 0.538, 'two_cov': 0.0, 'var_resid': 0.229, 'span': 5.173}\n"}
+,{"stream_name":"stdout","time":12059.101251087,"data":"[I_decomposition] done in 361s\n"}
+,{"stream_name":"stdout","time":12106.333075228,"data":"D machines {'pythia-14m': [3.818832358440229, 9.02823412821543], 'pythia-31m': [2.3955130408367418, 5.433349453140631], 'pythia-70m': [1.214948479744055, 2.2090656794285324], 'pythia-160m': [1.05943612391203, 1.3595982708874752], 'pythia-410m': [1.043610815320985, 1.4343009725588332], 'pythia-1b': [1.0, 1.0]} {'pythia-14m': [1.3915351226951107, 2.436168683858935], 'pythia-31m': [1.285792245352408, 1.8256289938660883], 'pythia-70m': [0.659961977580644, 1.2502714587026431], 'pythia-160m': [0.4362686099058284, 0.8019204656210984], 'pythia-410m': [0.33976747212617664, 0.6507124024754639], 'pythia-1b': [0.32074327782887935, 0.6877226719601042]}\n"}
+,{"stream_name":"stdout","time":12183.94124555,"data":"D mammals [0.166837923643064, 0.31909385191759154] [-0.19750737213379013, -0.020298574561855943]\n"}
+,{"stream_name":"stdout","time":12272.494235128,"data":"[D_event_bootstrap] done in 213s\n"}
+,{"stream_name":"stdout","time":12273.087890285,"data":"E raw_first {'cells': 226, 'events': 45, 'rho': 0.8282, 'r2': 0.6859, 'unit_only_r2': 0.0505, 'null_mean': 0.4884, 'null_sd': 0.0364, 'z': 9.3392, 'stretch_r2': 0.7657, 'gain': 0.0798, 'F': 11.6498, 'spearman_beta_primary': 0.8241, 'shared_events': 44, 'common_cells': 211, 'common_cell_pearson_log': 0.8199, 'common_cell_median_abs_diff_log': 0.0893}\n"}
+,{"stream_name":"stdout","time":12273.661210393,"data":"E sustained {'cells': 223, 'events': 44, 'rho': 0.8733, 'r2': 0.7626, 'unit_only_r2': 0.0595, 'null_mean': 0.488, 'null_sd': 0.0353, 'z': 10.9143, 'stretch_r2': 0.8685, 'gain': 0.1059, 'F': 27.2075, 'spearman_beta_primary': 0.9488, 'shared_events': 44, 'common_cells': 219, 'common_cell_pearson_log': 0.8379, 'common_cell_median_abs_diff_log': 0.102}\n"}
+,{"stream_name":"stdout","time":12365.696672754,"data":"E free_floor {'cells': 225, 'events': 45, 'rho': 0.8655, 'r2': 0.7492, 'unit_only_r2': 0.052, 'null_mean': 0.4865, 'null_sd': 0.0368, 'z': 10.2922, 'stretch_r2': 0.823, 'gain': 0.0738, 'F': 14.1747, 'spearman_beta_primary': 0.9781, 'shared_events': 45, 'common_cells': 225, 'common_cell_pearson_log': 0.9208, 'common_cell_median_abs_diff_log': 0.0717}\n"}
+,{"stream_name":"stdout","time":12365.696842707,"data":"[E_crossing_rules] done in 93s\n"}
+,{"stream_name":"stdout","time":12417.893640161,"data":"F touched {'pythia-14m': 17.410397465345934, 'pythia-160m': 1.5584565185794161, 'pythia-1b': 1.0, 'pythia-31m': 7.453233829532369, 'pythia-410m': 1.3004434136195884, 'pythia-70m': 3.0724127747132988} {'pythia-14m': 1.7734065770874774, 'pythia-160m': 0.71156509221166, 'pythia-1b': 0.4401789973329182, 'pythia-31m': 1.4729412422857457, 'pythia-410m': 0.4713999981580425, 'pythia-70m': 1.1305080929241564} 206.4\n"}
+,{"stream_name":"stdout","time":12467.58374839,"data":"F drop_touched {'pythia-14m': 10.94478793403934, 'pythia-160m': 1.3589444686764462, 'pythia-1b': 1.0, 'pythia-31m': 5.6018883241261905, 'pythia-410m': 1.2721301814443482, 'pythia-70m': 2.487462546039401} {'pythia-14m': 1.997910571697751, 'pythia-160m': 0.5716654565996272, 'pythia-1b': 0.3660947141307358, 'pythia-31m': 1.5724731542623425, 'pythia-410m': 0.4119606527007641, 'pythia-70m': 1.0798954506087792} 286.1\n"}
+,{"stream_name":"stdout","time":12467.584005334,"data":"[F_censored] done in 102s\n"}
+,{"stream_name":"stdout","time":12472.056413373,"data":"G mammals {'ci': [0.9843449375913691, 0.9939333767191383], 'n_draws': 500, 'gesvd_fallbacks': 0}\n"}
+,{"stream_name":"stdout","time":12838.709161213,"data":"G lexical {'ci': [0.8021079481220752, 0.8615328017406749], 'n_draws': 500, 'gesvd_fallbacks': 3}\n"}
+,{"stream_name":"stdout","time":12838.709227258,"data":"[G_lexical_bootstrap500] done in 371s\n"}
+,{"stream_name":"stdout","time":12878.44046367,"data":"H 0.0 {'power': 0.12, 'median_flips': 24.0, 'median_tested': 404.0}\n"}
+,{"stream_name":"stdout","time":12915.570378204,"data":"H 0.23961700643933564 {'power': 0.12, 'median_flips': 31.0, 'median_tested': 404.0}\n"}
+,{"stream_name":"stdout","time":12953.210965248,"data":"H 0.5 {'power': 0.2, 'median_flips': 46.0, 'median_tested': 404.0}\n"}
+,{"stream_name":"stdout","time":12990.792554443,"data":"H 1.0 {'power': 0.26666666666666666, 'median_flips': 69.0, 'median_tested': 404.0}\n"}
+,{"stream_name":"stdout","time":12990.792673541,"data":"[H_eventpair_power] done in 152s\n"}
+,{"stream_name":"stdout","time":13039.078302107,"data":"J {'event_spearman': 0.9579737335834897, 'shared_events': 40, 'common_cells': 167, 'common_cell_pearson_log': 0.8625950218884574, 'common_cell_median_abs_diff_log': 0.180933951666141, 'common_cell_mean_diff_log': -0.055318262781266024}\n"}
+,{"stream_name":"stdout","time":13039.078394479,"data":"[J_dedup_matched] done in 48s\n"}
+,{"stream_name":"stdout","time":13039.508903914,"data":"K {'cells': 221, 'events': 44, 'rho': 0.8803836608451147, 'r2': 0.7750753902830443, 'unit_only_r2': 0.06563758975577061, 'null_mean': 0.49388957553647705, 'null_sd': 0.036485934114759186, 'z': 10.592961224262424, 'stretch_r2': 0.891662429777803, 'gain': 0.11658703949475868, 'F': 35.943275367339794, 'removed': 9, 'spearman_beta_primary': 0.9930937279774489}\n"}
+,{"stream_name":"stdout","time":13039.508957278,"data":"[K_no_extrapolation] done in 0s\n"}
+,{"stream_name":"stdout","time":13062.466800611,"data":"L {'mammals_without_None': {'cells': 372, 'additive_r2': 0.972190923467962, 'stretch_r2': 0.9812350097893714, 'gain': 0.009044086321409406, 'stretches': {'Hamster': 0.9084566368357266, 'Mouse': 0.8644655496365498, 'Rat': 0.8443329102327072, 'Rabbit': 1.1030389585458409, 'Spiny.Mouse': 0.1728230826166775, 'Guinea.Pig': 0.7710731936954156, 'Ferret': 1.1593358613085782, 'Cat': 1.2446499365361818, 'Macaque': 1.328845494351734, 'Human': 1.6029783762405867}}, 'mammals_without_Spiny.Mouse': {'cells': 352, 'additive_r2': 0.974547614906992, 'stretch_r2': 0.9818449096463616, 'gain': 0.007297294739369575, 'stretches': {'Hamster': 0.8320664187874294, 'Mouse': 0.7918882784970233, 'Rat': 0.773270615924924, 'Rabbit': 1.0102473606978912, 'Guinea.Pig': 0.7062344757432839, 'Ferret': 1.0618687940985958, 'Cat': 1.1392605780884617, 'Macaque': 1.2172128925837662, 'Human': 1.467950585578625}}, 'lexical_restarts': {'r2': [0.6578576643782094, 0.6578576643782094], 'min_stretch': [0.7002364327817588, 0.7002364327817588], 'max_stretch': [1.191489291153761, 1.191489291153761]}}\n"}
+,{"stream_name":"stdout","time":13062.4668529,"data":"[L_stretch_checks] done in 23s\n"}
+,{"stream_name":"stdout","time":13062.47032121,"data":"total 13057s\n"}
+,{"stream_name":"stderr","time":13066.198435633,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":13066.198474413,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":13066.762195768,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":13066.762226943,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":13069.625206873,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":13071.545156759,"data":"[NbConvertApp] Writing 542649 bytes to __results__.html\n"}
+]

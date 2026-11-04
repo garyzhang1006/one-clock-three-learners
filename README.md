@@ -96,6 +96,21 @@ primary value was seen.
 `.jsonl` files. American English child and model orders correlate at -0.211 over 648 words,
 and the correlation comes from lexical class, since without function words it is -0.037.
 
+## Robustness and uncertainty
+
+`gaps/gaps.py` runs the checks the paper reports for the stretch, the decomposition and the
+machine crossings from files already in the repository root, so no model is run: 10-fold
+cross-validation of the additive and stretch fits, held-unit baselines, a 200-draw binomial
+resampling of every BLiMP accuracy, event-resampling intervals for the variance decomposition
+and the multipliers, three alternative crossing rules, a censored (Tobit) likelihood, the 500-draw
+lexical-norm bootstrap, a power simulation for event pairing, the matched-window deduplication
+comparison, a refit without extrapolated crossings, and the spiny-mouse and lexical restart checks.
+
+    python gaps/gaps.py
+
+It takes about 3.6 hours on four CPU threads, most of it in the binomial resampling, and writes
+`gaps_results.json` to the working directory. `gaps/out/` holds the run the paper reports and its log.
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten
