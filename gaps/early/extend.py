@@ -1,0 +1,413 @@
+"""Main Pythia panel with checkpoints before step 128.
+
+early.py scored all 67 BLiMP paradigms at steps 16, 32, 64, 128, 256 and 512 on its own 200-pair
+sample per paradigm. This checks agreement with the released accuracies at steps 128 to 512, then
+refits the machine crossings (main rule) and the additive and stretch models on three panels with
+the same sizes: released from step 128 (the paper's window), extended (new accuracies at steps 16 to
+64 plus released from step 128), and new-early (new accuracies at steps 16 to 512 plus released from
+step 1000). Fixed-cell refits separate cell selection from crossing placement, as in window.py.
+Helpers and the crossing rule are copied from gaps.py. Writes extend_results.json.
+"""
+import glob, os, json, time, itertools, traceback
+from collections import defaultdict
+import numpy as np, pandas as pd
+from scipy.optimize import curve_fit, minimize
+from scipy import stats
+from scipy.linalg import svd as scipy_svd
+
+T0 = time.time()
+OUT = '/kaggle/working' if os.path.isdir('/kaggle/working') else '.'
+RES = {}
+TOK = 1024 * 2049.0
+CRIT = 0.70
+SIZES = ['pythia-14m', 'pythia-31m', 'pythia-70m', 'pythia-160m', 'pythia-410m', 'pythia-1b']
+SP = ['Hamster', 'Mouse', 'Rat', 'Rabbit', 'Spiny.Mouse', 'Guinea.Pig', 'Ferret', 'Cat', 'Macaque', 'Human']
+PRIM = {'Macaque', 'Human'}
+
+
+def find(name):
+    for root in ['/kaggle/input', '.']:
+        hits = sorted(glob.glob(os.path.join(root, '**', name), recursive=True))
+        if hits:
+            return hits[0]
+    raise FileNotFoundError(f'{name} not found under /kaggle/input or cwd; attach the oneclock-gaps-inputs dataset')
+
+
+def save():
+    with open(os.path.join(OUT, 'extend_results.json'), 'w') as f:
+        json.dump(RES, f, indent=1, default=lambda o: o.item() if hasattr(o, 'item') else str(o))
+
+
+def section(name):
+    def wrap(fn):
+        t = time.time()
+        try:
+            RES[name] = fn()
+            print(f'[{name}] done in {time.time() - t:.0f}s', flush=True)
+        except Exception:
+            RES[name] = {'error': traceback.format_exc()}
+            print(f'[{name}] FAILED\n{RES[name]["error"]}', flush=True)
+        save()
+        return fn
+    return wrap
+
+
+def pct(v, q=(2.5, 97.5)):
+    v = np.asarray(v, float)
+    v = v[np.isfinite(v)]
+    return [float(np.percentile(v, q[0])), float(np.percentile(v, q[1]))] if len(v) else [None, None]
+
+
+# ---------------------------------------------------------------- core fits
+def lsfit(X, y):
+    try:
+        b = np.linalg.lstsq(X, y, rcond=None)[0]
+    except np.linalg.LinAlgError:
+        U, s, Vt = scipy_svd(X, full_matrices=False, lapack_driver='gesvd')
+        keep = s > s.max() * 1e-10
+        b = Vt[keep].T @ ((U[:, keep].T @ y) / s[keep])
+    return b, X @ b
+
+
+def r2(y, p):
+    return float(1 - ((y - p) ** 2).sum() / ((y - y.mean()) ** 2).sum())
+
+
+def design(u, e, extra=None, unit=True, event=True):
+    n = len(u)
+    B = []
+    if unit:
+        B.append(np.eye(u.max() + 1)[u])
+    if event:
+        E = np.zeros((n, e.max() + 1))
+        E[np.arange(n), e] = 1
+        B.append(E[:, 1:] if unit else E)
+    if extra is not None:
+        B.append(np.asarray(extra, float).reshape(n, -1))
+    return np.hstack(B)
+
+
+def additive(u, e, y, extra=None):
+    """OLS of log time on unit and event dummies; event 0 is the reference."""
+    nu, ne = u.max() + 1, e.max() + 1
+    b, p = lsfit(design(u, e, extra), y)
+    return b[:nu], np.r_[0.0, b[nu:nu + ne - 1]], p, b[nu + ne - 1:]
+
+
+def unit_only_r2(u, y, extra=None):
+    return r2(y, lsfit(design(u, None, extra, event=False), y)[1])
+
+
+def stretch(u, e, y, sweeps=500, g0=None):
+    """log t = a_i + g_i b_e by alternating least squares, as in the release's controls.py."""
+    nu, ne = u.max() + 1, e.max() + 1
+    a, b, _, _ = additive(u, e, y)
+    a, b = a.copy(), b.copy()
+    g = np.ones(nu) if g0 is None else np.asarray(g0, float).copy()
+    idx = [np.where(u == i)[0] for i in range(nu)]
+    cnt = np.bincount(u, minlength=nu)
+    for _ in range(sweeps):
+        for i in range(nu):
+            m = idx[i]
+            X = np.c_[np.ones(len(m)), b[e[m]]]
+            a[i], g[i] = np.linalg.lstsq(X, y[m], rcond=None)[0]
+        num = np.bincount(e, weights=g[u] * (y - a[u]), minlength=ne)
+        den = np.bincount(e, weights=g[u] ** 2, minlength=ne)
+        b = num / den
+        sc = b.std(ddof=1)
+        b = (b - b.mean()) / sc
+        g = g * sc
+        a = np.bincount(u, weights=y - g[u] * b[e], minlength=nu) / cnt
+    return a, g, b, a[u] + g[u] * b[e]
+
+
+def codes(*cols):
+    return [pd.factorize(np.asarray(c))[0] for c in cols]
+
+
+def mult_rel(alpha, labels, ref):
+    i = list(labels).index(ref)
+    return {str(l): float(np.exp(alpha[k] - alpha[i])) for k, l in enumerate(labels)}
+
+
+# ---------------------------------------------------------------- tables
+def load_tables():
+    df = pd.read_csv(find('event_data.csv'))
+    rows = []
+    for s in SP:
+        for ei in range(len(df)):
+            t = df[s].iloc[ei]
+            if t and t > 0:
+                rows.append((f'ev{ei}', s, float(t), int(df['Cortical'].iloc[ei]), int(df['Limbic'].iloc[ei]), s in PRIM))
+    R = pd.DataFrame(rows, columns=['ev', 'sp', 't', 'cort', 'limb', 'prim'])
+    R = R[R.ev.map(R.ev.value_counts()) >= 2].reset_index(drop=True)
+    a = pd.read_feather(find('aoas.feather'))
+    lex = {}
+    for meas in ['produces', 'understands']:
+        d = a[(a.measure == meas) & a.aoa.notna() & a.uni_lemma.notna()].copy()
+        d = d[d.uni_lemma.map(d.uni_lemma.value_counts()) >= 2].reset_index(drop=True)
+        lex[meas] = d
+    A = pd.read_csv(find('machine_acq_70.csv'))
+    A = A[A.paradigm.map(A.paradigm.value_counts()) >= 2].reset_index(drop=True)
+    return R, lex, A
+
+
+R, LEX, A70 = load_tables()
+MAM_EXTRA = np.c_[R.prim * R.cort, R.prim * R.limb].astype(float)
+TABLES = {
+    'mammals': (R.sp.values, R.ev.values, np.log(R.t.values)),
+    'lexical': (LEX['produces'].language.values, LEX['produces'].uni_lemma.values, np.log(LEX['produces'].aoa.values.astype(float))),
+    'lexical_comprehension': (LEX['understands'].language.values, LEX['understands'].uni_lemma.values, np.log(LEX['understands'].aoa.values.astype(float))),
+    'machines': (A70['size'].values, A70.paradigm.values, np.log(A70.tok.values.astype(float))),
+}
+_m = A70[A70.paradigm.map(A70.paradigm.value_counts()) == 6]
+TABLES['machines_complete'] = (_m['size'].values, _m.paradigm.values, np.log(_m.tok.values.astype(float)))
+print({k: len(v[2]) for k, v in TABLES.items()}, flush=True)
+
+BLIMP = pd.read_csv(find('blimp_by_step_all.csv'))
+BLIMP_DEDUP = pd.read_csv(find('blimp_by_step_dedup.csv'))
+
+
+# ---------------------------------------------------------------- machine crossings
+def logistic(x, L, x0, k):
+    return 0.5 + (L - 0.5) / (1 + np.exp(-k * (x - x0)))
+
+
+def logistic_floor(x, c, L, x0, k):
+    return c + (L - c) / (1 + np.exp(-k * (x - x0)))
+
+
+def cross_logistic(x, y, crit=CRIT):
+    if y.max() < crit:
+        return 'notreached', np.nan
+    try:
+        p, _ = curve_fit(logistic, x, y, p0=[max(y.max(), 0.6), x.mean(), 1.0],
+                         bounds=([0.5, x.min() - 5, 0.01], [1.0, x.max() + 5, 20]), maxfev=20000)
+    except Exception:
+        return 'error', np.nan
+    L, x0, k = p
+    if L <= crit:
+        return 'ceiling', np.nan
+    xc = x0 - np.log((L - 0.5) / (crit - 0.5) - 1) / k
+    if xc < x.min() - 2:
+        return 'before', xc
+    if xc > x.max() + 2:
+        return 'after', xc
+    return 'observed', xc
+
+
+def cross_floor(x, y, crit=CRIT):
+    if y.max() < crit:
+        return 'notreached', np.nan
+    c0 = float(min(np.mean(y[:2]), 0.69))
+    try:
+        p, _ = curve_fit(logistic_floor, x, y, p0=[c0, max(y.max(), 0.71), x.mean(), 1.0],
+                         bounds=([0.0, 0.5, x.min() - 5, 0.01], [0.69, 1.0, x.max() + 5, 20]), maxfev=20000)
+    except Exception:
+        return 'error', np.nan
+    c, L, x0, k = p
+    if L <= crit or L <= c:
+        return 'ceiling', np.nan
+    xc = x0 - np.log((L - c) / (crit - c) - 1) / k
+    if xc < x.min() - 2:
+        return 'before', xc
+    if xc > x.max() + 2:
+        return 'after', xc
+    return 'observed', xc
+
+
+def cross_raw(x, y, crit=CRIT, sustained=False, tol=0.05):
+    """First checkpoint at or above crit, interpolated linearly in accuracy against log tokens
+    from the preceding checkpoint. Sustained: accuracy never again falls below crit - tol."""
+    if y.max() < crit:
+        return 'notreached', np.nan
+    if sustained:
+        cand = [j for j in range(len(y)) if y[j] >= crit and (y[j:] >= crit - tol).all()]
+        if not cand:
+            return 'unsustained', np.nan
+        j = cand[0]
+    else:
+        j = int(np.argmax(y >= crit))
+    if j == 0:
+        return 'before', np.nan
+    x0, x1, y0, y1 = x[j - 1], x[j], y[j - 1], y[j]
+    return 'observed', float(x0 + (crit - y0) / (y1 - y0) * (x1 - x0))
+
+
+def curve_table(d, fn=cross_logistic, crit=CRIT, max_step=None):
+    rows = []
+    for (s, p), g in d.groupby(['size', 'paradigm']):
+        g = g.sort_values('step')
+        if max_step is not None and s.startswith('pythia-410m'):
+            g = g[g.step <= max_step]
+        x = np.log(g.step.values * TOK)
+        y = g.acc.values
+        st, xc = fn(x, y, crit)
+        hit = np.where(y >= crit)[0]
+        rows.append(dict(size=s, paradigm=p, status=st, x=xc, xmin=x.min(), xmax=x.max(),
+                         xfirsthit=x[hit[0]] if len(hit) else np.nan))
+    return pd.DataFrame(rows)
+
+
+def panel_from(C):
+    P = C[C.status == 'observed']
+    return P[P.paradigm.map(P.paradigm.value_counts()) >= 2].reset_index(drop=True)
+
+
+def machine_summary(P, nperm=0, with_stretch=True, ref='pythia-1b', seed=0):
+    u, e = codes(P['size'].values, P.paradigm.values)
+    ul = pd.factorize(P['size'].values)[1]
+    el = pd.factorize(P.paradigm.values)[1]
+    y = P.x.values.astype(float)
+    al, be, p, _ = additive(u, e, y)
+    out = dict(cells=int(len(y)), events=int(e.max() + 1), rho=float(np.corrcoef(y, p)[0, 1]), r2=r2(y, p),
+               unit_only_r2=unit_only_r2(u, y), multipliers=mult_rel(al, ul, ref) if ref in ul else None)
+    if nperm:
+        rng = np.random.default_rng(seed)
+        U, sv, _ = np.linalg.svd(design(u, e), full_matrices=False)
+        U = U[:, sv > sv.max() * 1e-10]
+        null = []
+        for _ in range(nperm):
+            yp = y.copy()
+            for i in range(u.max() + 1):
+                m = u == i
+                yp[m] = rng.permutation(yp[m])
+            null.append(np.corrcoef(yp, U @ (U.T @ yp))[0, 1])
+        null = np.array(null)
+        out.update(null_mean=float(null.mean()), null_sd=float(null.std()), z=float((out['rho'] - null.mean()) / null.std()))
+    if with_stretch:
+        a, g, b, ps = stretch(u, e, y)
+        q = u.max()
+        n = len(y)
+        pa = u.max() + 1 + e.max()
+        r2s = r2(y, ps)
+        out.update(stretch_r2=r2s, gain=r2s - out['r2'],
+                   F=float(((r2s - out['r2']) / q) / ((1 - r2s) / (n - pa - q))),
+                   stretches={str(l): float(v) for l, v in zip(ul, g / g.mean())})
+    out['beta'] = dict(zip(map(str, el), map(float, be)))
+    return out
+
+
+def spearman_beta(b1, b2):
+    common = sorted(set(b1) & set(b2))
+    if len(common) < 3:
+        return None, len(common)
+    return float(stats.spearmanr([b1[c] for c in common], [b2[c] for c in common])[0]), len(common)
+
+
+PRIMARY_CURVES = curve_table(BLIMP)
+PRIMARY = machine_summary(panel_from(PRIMARY_CURVES))
+print('primary machine panel recomputed:', PRIMARY['cells'], round(PRIMARY['rho'], 4),
+      PRIMARY_CURVES.status.value_counts().to_dict(), flush=True)
+RES['primary_check'] = {k: v for k, v in PRIMARY.items() if k != 'beta'}
+RES['primary_check']['status_counts'] = PRIMARY_CURVES.status.value_counts().to_dict()
+
+
+
+
+def cv(uu, ee, y, reps=5, folds=10):
+    rng = np.random.default_rng(0)
+    sse_a = sse_s = 0.0
+    wins = []
+    for rep in range(reps):
+        fold = rng.permutation(len(y)) % folds
+        for k in range(folds):
+            tr = fold != k
+            ok = (~tr) & np.isin(ee, np.unique(ee[tr])) & np.isin(uu, np.unique(uu[tr]))
+            ul, el = pd.unique(uu[tr]), pd.unique(ee[tr])
+            um, em = {l: i for i, l in enumerate(ul)}, {l: i for i, l in enumerate(el)}
+            ut = np.array([um[x] for x in uu[tr]]); et = np.array([em[x] for x in ee[tr]])
+            us = np.array([um[x] for x in uu[ok]]); es = np.array([em[x] for x in ee[ok]])
+            al, be, _, _ = additive(ut, et, y[tr])
+            a, g, b, _ = stretch(ut, et, y[tr])
+            fa = ((y[ok] - al[us] - be[es]) ** 2).sum()
+            fs = ((y[ok] - a[us] - g[us] * b[es]) ** 2).sum()
+            sse_a += fa; sse_s += fs; wins.append(bool(fs < fa))
+    return dict(mse_ratio_stretch_over_additive=sse_s / sse_a, folds_stretch_better=int(sum(wins)), folds=len(wins))
+
+
+def summarize(P, ref, base_beta=None):
+    s = machine_summary(P, ref=ref)
+    s['cv'] = cv(P['size'].values, P.paradigm.values, P.x.values.astype(float))
+    if base_beta is not None:
+        s['beta_spearman_vs_released128'] = spearman_beta(s['beta'], base_beta)
+    s['beta'] = None
+    return s
+
+
+EARLY = pd.concat([pd.read_csv(p) for n in ['early_small.csv', 'early_1b.csv']
+                   for p in sorted(glob.glob(os.path.join('/kaggle/input' if os.path.isdir('/kaggle/input') else '.', '**', n), recursive=True))[:1]])
+NEW_SIZES = [s for s in SIZES if s in set(EARLY['size'])]
+REF = 'pythia-1b' if 'pythia-1b' in NEW_SIZES else NEW_SIZES[-1]
+RES['sizes'] = NEW_SIZES
+print('sizes', NEW_SIZES, 'early rows', len(EARLY), flush=True)
+
+
+@section('agreement')
+def _():
+    M = EARLY.merge(BLIMP, on=['size', 'step', 'paradigm'], suffixes=('_new', '_rel'))
+    out = {}
+    for s, g in M.groupby('size'):
+        d = g.acc_new - g.acc_rel
+        pbar = (g.acc_new + g.acc_rel) / 2
+        out[s] = dict(cells=int(len(g)), pearson=float(np.corrcoef(g.acc_new, g.acc_rel)[0, 1]), mean_diff=float(d.mean()),
+                      sd_diff=float(d.std()), sampling_sd_expected=float(np.sqrt((2 * pbar * (1 - pbar) / 200).mean())))
+    out['all'] = dict(cells=int(len(M)), pearson=float(np.corrcoef(M.acc_new, M.acc_rel)[0, 1]),
+                      mean_diff=float((M.acc_new - M.acc_rel).mean()), sd_diff=float((M.acc_new - M.acc_rel).std()))
+    out['mean_acc_by_step'] = {int(k): float(v) for k, v in EARLY.groupby('step').acc.mean().items()}
+    print('agreement', out['all'], flush=True)
+    return out
+
+
+REL = BLIMP[BLIMP['size'].isin(NEW_SIZES)]
+TABLES_W = {
+    'released_from_128': REL,
+    'extended_from_16': pd.concat([EARLY[EARLY.step < 128], REL]),
+    'new_early_from_16': pd.concat([EARLY, REL[REL.step >= 1000]]),
+}
+CURVES = {k: curve_table(v[['size', 'step', 'paradigm', 'acc']]) for k, v in TABLES_W.items()}
+BASE = machine_summary(panel_from(CURVES['released_from_128']), ref=REF)['beta']
+
+
+@section('panels')
+def _():
+    out = {}
+    for k, C in CURVES.items():
+        out[k] = summarize(panel_from(C), REF, BASE)
+        out[k]['status_by_size'] = {s: g.status.value_counts().to_dict() for s, g in C.groupby('size')}
+        print(k, out[k]['cells'], round(out[k]['gain'], 3), out[k]['stretches'], out[k]['cv'], flush=True)
+    return out
+
+
+@section('window_starts')
+def _():
+    out = {}
+    T = TABLES_W['extended_from_16']
+    for m in [16, 32, 64, 128]:
+        C = curve_table(T[T.step >= m][['size', 'step', 'paradigm', 'acc']])
+        s = summarize(panel_from(C), REF, BASE)
+        out[m] = dict(cells=s['cells'], gain=s['gain'], stretches=s['stretches'], cv=s['cv'], rho=s['rho'])
+        print('from', m, out[m], flush=True)
+    return out
+
+
+@section('fixed_cells')
+def _():
+    key = ['size', 'paradigm']
+    o128 = CURVES['released_from_128'].query('status == "observed"')[key + ['x']]
+    o16 = CURVES['extended_from_16'].query('status == "observed"')[key + ['x']]
+    both = o16.merge(o128, on=key, suffixes=('16', '128'))
+    out = dict(common=int(len(both)), pearson=float(np.corrcoef(both.x16, both.x128)[0, 1]),
+               mean_shift_by_size={s: float((g.x16 - g.x128).mean()) for s, g in both.groupby('size')},
+               transitions={s: g.status.value_counts().to_dict() for s, g in
+                            CURVES['released_from_128'][key + ['status']].merge(o16, on=key).groupby('size')})
+    variants = {'x16_on_common': both.rename(columns={'x16': 'x'}), 'x128_on_common': both.rename(columns={'x128': 'x'}),
+                'x16_dropping_before_128': o16[o16.x >= np.log(128 * TOK)]}
+    for name, V in variants.items():
+        s = summarize(panel_from(V.assign(status='observed')), REF, BASE)
+        out[name] = dict(cells=s['cells'], gain=s['gain'], stretches=s['stretches'], cv=s['cv'], rho=s['rho'],
+                         multipliers=s['multipliers'], beta_spearman=s['beta_spearman_vs_released128'])
+        print(name, out[name], flush=True)
+    return out
+
+save()

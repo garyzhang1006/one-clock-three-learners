@@ -123,6 +123,12 @@ cell sets (`window_results.json`).
 
     python gaps/window.py
 
+`gaps/early/` tests the main panel's window. `early.py` scores all 67 BLiMP paradigms at steps 16 to
+512 (its own 200-pair sample per paradigm, since the main panel's sample isn't in this release; set
+TAG to `small` for 14M to 410M or `1b`). It downloads Pythia checkpoints and needs about eight CPU
+hours for the five small sizes. `extend.py` checks agreement with the released accuracies and refits
+the crossings and the stretch with the early checkpoints added; `out/` holds the reported run.
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten
