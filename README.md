@@ -80,6 +80,22 @@ The machine sweep is the only part that is expensive rather than instant, since 
 hours of Kaggle CPU across two sessions. Everything downstream of `blimp_by_step_all.csv` runs
 in seconds on a laptop.
 
+## Matched CDI words
+
+`matched/` times children and Pythia on the same 696 CDI words. Child times are the American
+and Australian English WS production ages in `child_aoa.tsv`. Machine times are surprisal
+acquisition crossings for Pythia 14M to 410M over 22 checkpoints and ten seeds, computed from
+the gzipped surprisal tables in the same folder, so no model is run. The analysis plan is in the
+docstring of `matched_cdi.py`, including the two deviations made after crashes and before any
+primary value was seen.
+
+    cd matched && pip install wordfreq && OUT_DIR=out python matched_cdi.py
+
+`out/` holds the results the paper reports: `matched_results.json`, the per-word table
+`matched_words.csv`, and `log.txt`. The recorded SHA-256 hashes are of the decompressed
+`.jsonl` files. American English child and model orders correlate at -0.211 over 648 words,
+and the correlation comes from lexical class, since without function words it is -0.037.
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten
@@ -92,8 +108,7 @@ are rare.
 
 ## Citing
 
-The paper is under review at the NeurIPS 2026 Developmental AI workshop. A citation will go
-here once there is something to point at.
+A citation will go here once the paper is public.
 
 ## License
 

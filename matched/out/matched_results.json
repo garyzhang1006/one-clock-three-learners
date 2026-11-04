@@ -1,0 +1,138 @@
+{
+ "prespecified": "before the run (2026-11-03):\n  S1 primary   Spearman rho between American English production log AoA and\n               the machine word effect b_M from a log-additive fit over the five\n               seed-0 Pythia sizes; two-sided p from 10,000 word-label\n               permutations (seed 0).\n  S2           noise ceilings: seed-panel reliability of b_M (seed k panel vs\n               seed j panel, all 45 pairs) and AmE-vs-AusE production agreement;\n               disattenuated rho is descriptive.\n  S3           partial Spearman of S1 controlling log word frequency (wordfreq\n               Zipf, en) and word length; each system's frequency correlation.\n  S4           paper framework: joint log-additive fit over AmE production plus\n               the five sizes, rho with the within-unit permutation null\n               (1,000, seed 0), and a cross-system null that shuffles only the\n               child rows (1,000, seed 1).\n  S5           lexical class: class means of z-scored effects per system, and a\n               class-by-system test on z_M - z_C (eta^2, 10,000 label perms).\n  Secondary    S1 with Australian English production, AmE comprehension, and\n               b_M from all 50 seed runs.\n\nDeviations recorded after run v2 crashed (2026-11-03, before any S1 value\nwas seen): the logistic fits put mommy and daddy at negative AoA (-1.6 and\n-1.4 months), which have no log, so words with AoA <= 0 are dropped from every\nanalysis; and the WS \"understands\" rows in child_aoa.tsv copy the \"produces\"\nAoAs exactly (651/651 words), so the AmE comprehension secondary is not\nestimable from this file and is reported as such.",
+ "input_sha256": {
+  "results_twins-cpuall.jsonl": "dccaf146ac3001aae38b22d074dc83c2db7328a171b568be804b6ad52d6dee1b",
+  "results_twins-cpu31m.jsonl": "41fedee327d85af7c8491a9c1ee96d8b5f3b1be6b0312b32dde8884c58bf296c",
+  "child_aoa.tsv": "70e4c3241acf844db0c0b38a0f00a5b479af604bd38b74b26268e878bb2e3250"
+ },
+ "machine_seed0": {
+  "n_words": 695,
+  "n_cells": 3444,
+  "not_acquired_per_run": {
+   "EleutherAI/pythia-14m": 20,
+   "EleutherAI/pythia-31m": 8,
+   "EleutherAI/pythia-70m": 5,
+   "EleutherAI/pythia-160m": 1,
+   "EleutherAI/pythia-410m": 1
+  },
+  "rho_additive": 0.9079779609757681
+ },
+ "S1_ame_production": {
+  "rho": -0.21128989137791168,
+  "n": 648,
+  "p_two_sided": 9.999000099990002e-05,
+  "pearson_r": -0.16494333154011764
+ },
+ "S1_aus_production": {
+  "rho": -0.03803627482173223,
+  "n": 428,
+  "p_two_sided": 0.4273572642735726,
+  "pearson_r": 0.0032845406830848555
+ },
+ "S1_ame_comprehension": {
+  "not_estimable": true,
+  "n_identical_to_production": 649,
+  "n_words": 649
+ },
+ "dropped_nonpositive_aoa": [
+  [
+   "English (American)",
+   "produces",
+   "daddy",
+   -1.440204791
+  ],
+  [
+   "English (American)",
+   "produces",
+   "mommy",
+   -1.621661589
+  ],
+  [
+   "English (American)",
+   "understands",
+   "daddy",
+   -1.440204791
+  ],
+  [
+   "English (American)",
+   "understands",
+   "mommy",
+   -1.621661589
+  ]
+ ],
+ "S2_ceilings": {
+  "machine_seed_panel_rho_mean": 0.9589628741857943,
+  "machine_seed_panel_rho_min": 0.9517050853007346,
+  "machine_seed_panel_rho_max": 0.9658923336939695,
+  "n_panel_pairs": 45,
+  "child_ame_vs_aus_production_rho": 0.8943945332889529,
+  "n_child_shared": 383,
+  "disattenuated_S1": -0.22814620801601274,
+  "note": "AmE-vs-AusE agreement stands in for child reliability; dialect differences count as noise, so the disattenuated value is descriptive"
+ },
+ "S1_ame_production_allseeds": {
+  "rho": -0.20878875675485847,
+  "n": 649,
+  "p_two_sided": 9.999000099990002e-05,
+  "pearson_r": -0.17209405154563084
+ },
+ "S3_controls": {
+  "partial_rho_freq_length": -0.13897130144742417,
+  "p_two_sided": 0.00029997000299970003,
+  "child_vs_freq_rho": 0.17303687814101584,
+  "machine_vs_freq_rho": -0.6347949253706995,
+  "child_vs_length_rho": 0.055177874030583045,
+  "machine_vs_length_rho": 0.31369573249268456,
+  "n_zero_freq": 1
+ },
+ "S4_joint": {
+  "n_cells": 4094,
+  "n_words": 696,
+  "within_unit_null": {
+   "obs": 0.9968636129405997,
+   "null_mean": 0.9918876821663699,
+   "null_sd": 8.107432178847533e-05,
+   "z": 61.37492937914504,
+   "p_ge": 0.000999000999000999
+  },
+  "child_rows_only_null": {
+   "obs": 0.9968636129405997,
+   "null_mean": 0.9969415390087788,
+   "null_sd": 1.819869917974464e-05,
+   "z": -4.281958144891342,
+   "p_ge": 1.0
+  },
+  "child_rows_fit_r": -0.1278376975562781
+ },
+ "S5_class_means": {
+  "adjectives": {
+   "n": 58,
+   "child_z": 0.26,
+   "machine_z": -0.229
+  },
+  "function_words": {
+   "n": 99,
+   "child_z": 0.727,
+   "machine_z": -1.289
+  },
+  "nouns": {
+   "n": 304,
+   "child_z": -0.236,
+   "machine_z": 0.527
+  },
+  "other": {
+   "n": 94,
+   "child_z": -0.346,
+   "machine_z": -0.124
+  },
+  "verbs": {
+   "n": 93,
+   "child_z": 0.185,
+   "machine_z": -0.08
+  }
+ },
+ "S5_class_by_system": {
+  "eta2": 0.4002046450074903,
+  "p_ge": 9.999000099990002e-05
+ }
+}
