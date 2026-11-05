@@ -129,6 +129,16 @@ TAG to `small` for 14M to 410M or `1b`). It downloads Pythia checkpoints and nee
 hours for the five small sizes and about eleven for 1B. `extend.py` checks agreement with the released accuracies and refits
 the crossings and the stretch with the early checkpoints added; `out/` holds the reported run.
 
+The rest of `gaps/early/` asks why the stretch depends on the window. `extend2.py` repeats the
+window comparison under six crossing rules with 100 binomial resamples. `simwin.py`, `simwin2.py`
+and `simmech.py` (set VARIANT to `slope`, `resid`, `resid_shuf`, `stretch` or `stretch_resid`)
+simulate panels with shift-only or stretched true crossings and measure them from both windows.
+`mechdiag.py` locates the window effect in the real curves. `isorule.py` dates crossings with a
+shape-free isotonic rule and tests two-phase curves, and `isoadded.py` examines the cells that only
+the early checkpoints date. Under the isotonic rule, crossings observed in both windows are almost
+all identical and keep the same stretch (gain 0.103 against 0.105); the cells crossing before step
+128 don't follow it. Each script writes one JSON file to `out/` and runs on CPU in under two hours.
+
 ## Caveats the paper states
 
 The machine table is the smallest at 234 cells over six units, and its permutation null is ten

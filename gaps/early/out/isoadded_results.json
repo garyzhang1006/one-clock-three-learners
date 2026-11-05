@@ -1,0 +1,413 @@
+{
+ "primary_check": {
+  "cells": 234,
+  "events": 48,
+  "rho": 0.8823280528970958,
+  "r2": 0.7785027929291786,
+  "unit_only_r2": 0.03855274319880808,
+  "multipliers": {
+   "pythia-14m": 5.728560839746653,
+   "pythia-160m": 1.1977272091560316,
+   "pythia-1b": 1.0,
+   "pythia-31m": 3.558382248720985,
+   "pythia-410m": 1.24122338797737,
+   "pythia-70m": 1.5986465704245436
+  },
+  "stretch_r2": 0.8788817833234042,
+  "gain": 0.1003789903942256,
+  "F": 29.172659231858578,
+  "stretches": {
+   "pythia-14m": 1.788499838904783,
+   "pythia-160m": 0.6368829530319043,
+   "pythia-1b": 0.5059957293088855,
+   "pythia-31m": 1.5528446751044067,
+   "pythia-410m": 0.5075341815673775,
+   "pythia-70m": 1.0082426220826428
+  },
+  "status_counts": {
+   "observed": 239,
+   "notreached": 105,
+   "before": 36,
+   "ceiling": 17,
+   "after": 4,
+   "error": 1
+  }
+ },
+ "sizes": [
+  "pythia-14m",
+  "pythia-31m",
+  "pythia-70m",
+  "pythia-160m",
+  "pythia-410m",
+  "pythia-1b"
+ ],
+ "added_cells": {
+  "n_added": 30,
+  "n_common": 219,
+  "status128": {
+   "before": 30
+  },
+  "by_size": {
+   "pythia-14m": 2,
+   "pythia-160m": 6,
+   "pythia-1b": 3,
+   "pythia-31m": 9,
+   "pythia-410m": 3,
+   "pythia-70m": 7
+  },
+  "share_before_step128": 0.9666666666666667,
+  "new_paradigms": [
+   "existential_there_object_raising",
+   "principle_A_case_1",
+   "principle_A_domain_1",
+   "sentential_negation_npi_licensor_present",
+   "wh_questions_subject_gap",
+   "wh_questions_subject_gap_long_distance",
+   "wh_vs_that_no_gap",
+   "wh_vs_that_no_gap_long_distance"
+  ],
+  "mean_res_stretch_by_size": {
+   "pythia-160m": -2.2223031375672644,
+   "pythia-31m": -0.583273666435197,
+   "pythia-70m": -0.31429060273766396
+  },
+  "mean_res_additive_by_size": {
+   "pythia-160m": -1.3744329888428712,
+   "pythia-31m": -0.8281222704096898,
+   "pythia-70m": -0.5144917425552826
+  },
+  "mse_stretch": 2.7794622520426184,
+  "mse_additive": 1.2600328340465778,
+  "cells": [
+   {
+    "size": "pythia-14m",
+    "paradigm": "existential_there_object_raising",
+    "x": 18.335,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-14m",
+    "paradigm": "principle_A_case_1",
+    "x": 18.55,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "existential_there_object_raising",
+    "x": 18.121,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "existential_there_quantifiers_1",
+    "x": 17.451,
+    "status128": "before",
+    "pred_stretch": 20.307,
+    "pred_additive": 19.221,
+    "res_stretch": -2.855,
+    "res_additive": -1.769
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "principle_A_case_1",
+    "x": 18.375,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "tough_vs_raising_2",
+    "x": 18.854,
+    "status128": "before",
+    "pred_stretch": 20.443,
+    "pred_additive": 19.834,
+    "res_stretch": -1.589,
+    "res_additive": -0.98
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "wh_questions_subject_gap",
+    "x": 17.52,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-160m",
+    "paradigm": "wh_vs_that_no_gap_long_distance",
+    "x": 17.428,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-1b",
+    "paradigm": "existential_there_object_raising",
+    "x": 18.769,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-1b",
+    "paradigm": "principle_A_case_1",
+    "x": 17.382,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-1b",
+    "paradigm": "sentential_negation_npi_licensor_present",
+    "x": 17.688,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "existential_there_object_raising",
+    "x": 18.875,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "existential_there_quantifiers_1",
+    "x": 19.195,
+    "status128": "before",
+    "pred_stretch": 19.779,
+    "pred_additive": 20.023,
+    "res_stretch": -0.583,
+    "res_additive": -0.828
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "principle_A_case_1",
+    "x": 18.797,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "principle_A_domain_1",
+    "x": 18.836,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "sentential_negation_npi_licensor_present",
+    "x": 17.348,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "wh_questions_subject_gap",
+    "x": 19.367,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "wh_questions_subject_gap_long_distance",
+    "x": 18.787,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "wh_vs_that_no_gap",
+    "x": 17.773,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-31m",
+    "paradigm": "wh_vs_that_no_gap_long_distance",
+    "x": 17.984,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-410m",
+    "paradigm": "existential_there_object_raising",
+    "x": 17.896,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-410m",
+    "paradigm": "principle_A_case_1",
+    "x": 18.168,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-410m",
+    "paradigm": "principle_A_domain_1",
+    "x": 18.837,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "existential_there_object_raising",
+    "x": 19.123,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "passive_1",
+    "x": 19.409,
+    "status128": "before",
+    "pred_stretch": 19.723,
+    "pred_additive": 19.923,
+    "res_stretch": -0.314,
+    "res_additive": -0.514
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "principle_A_domain_1",
+    "x": 17.683,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "wh_questions_subject_gap",
+    "x": 19.136,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "wh_questions_subject_gap_long_distance",
+    "x": 19.101,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "wh_vs_that_no_gap",
+    "x": 18.794,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   },
+   {
+    "size": "pythia-70m",
+    "paradigm": "wh_vs_that_no_gap_long_distance",
+    "x": 18.794,
+    "status128": "before",
+    "pred_stretch": NaN,
+    "pred_additive": NaN,
+    "res_stretch": NaN,
+    "res_additive": NaN
+   }
+  ]
+ },
+ "curvature": {
+  "cells": 248,
+  "r2": {
+   "additive": 0.8622825224269087,
+   "stretch": 0.8956277156410501,
+   "quad": 0.902551796542593
+  },
+  "cv_mse_ratio_vs_additive": {
+   "additive": 1.0,
+   "stretch": 0.881617652508031,
+   "quad": 0.8963945220340068
+  },
+  "slope": {
+   "pythia-14m": 1.2842273285911778,
+   "pythia-160m": 1.0373824993536955,
+   "pythia-1b": 0.8122903947331364,
+   "pythia-31m": 1.3729038286659805,
+   "pythia-410m": 0.8302026788050749,
+   "pythia-70m": 1.0247284459196662
+  },
+  "curvature": {
+   "pythia-14m": 0.09699923865160187,
+   "pythia-160m": -0.018162385429027816,
+   "pythia-1b": -0.03108899100159712,
+   "pythia-31m": 0.14448952808005422,
+   "pythia-410m": 0.011435591129428269,
+   "pythia-70m": 0.13165303293100417
+  }
+ }
+}
