@@ -117,6 +117,12 @@ minutes and writes `seeds_results.json` (reported run in `gaps/out/`, log in `se
 
     python gaps/seeds.py
 
+`gaps/seeds_iso.py` reruns the seed check with both the logistic rule and the shape-free isotonic
+crossing rule, from step 128 and step 16, and compares crossings on cells dated in both windows.
+It writes `seeds_iso_results.json` (reported run in `gaps/out/`, log in `seeds_iso_log.txt`).
+
+    python gaps/seeds_iso.py
+
 `gaps/window.py` splits the drop in the seed-panel stretch when checkpoints before step 128 are
 added into cell selection and crossing placement, by refitting the pooled seed table on matched
 cell sets (`window_results.json`).
